@@ -7,11 +7,16 @@ public class Store
     intro();
     getName();
     Wallet wallet = new Wallet();
+    buyOrLook();
   }
+  
+  
   public void intro()
   {
     System.out.println("---------------------------------\n| Welcome to Oliver's Bookshop! |\n---------------------------------");
   }
+  
+  
   public void getName() 
   {
     System.out.println("What's your name?");
@@ -26,4 +31,46 @@ public class Store
     }
   }
   
+  
+  public void buyOrLook()
+  {
+    System.out.println("Do you know what you'd like to buy, or would you like to see our catalog?\n[1] Buy\n[2] Catalog");
+    Scanner s = new Scanner(System.in);
+    if(s.nextLine().equals("Buy") || s.nextInt() == 1)
+    {
+      buy();
+    } 
+    else 
+    {
+      if(s.nextLine().equals("Catalog") || s.nextInt() == 2)
+      {
+        catalog();
+      } 
+      else 
+      {
+        System.out.println("That's not an option, silly!");
+        buyOrLook();
+      }
+    }
+    s.close();
+  }
+  
+  
+  public void buy();
+  {
+    System.out.println("What's the name of the book you'd like to buy?");
+    Scanner s = new Scanner(System.in);
+    String book = s.nextLine();
+    s.close();
+    System.out.println(
 }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
