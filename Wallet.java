@@ -10,15 +10,15 @@ public class Wallet
   }
   public void setup()
   {
-    System.out.println("How much money do you have?");
+    System.out.println("How much money do you have? (in USD)");
     Scanner s = new Scanner(System.in);
     budget = s.nextDouble();
     s.close();
   }
   public void setMoney()
   {
-    System.out.println("Enter the amount of money you have: ");
-    Scanner s = new Scanner();
+    System.out.println("Enter the amount of money you have (in USD): ");
+    Scanner s = new Scanner(System.in);
     budget = s.nextDouble();
     s.close();
   }
@@ -30,7 +30,7 @@ public class Wallet
   {
     return budget;
   }
-  public double spendMoney(double p);
+  public void spendMoney(double p)
   {
     budget -= p;
     spent += p;
