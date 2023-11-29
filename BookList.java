@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public class BookList
 {
-  private List<String> inventory = new ArrayList<String>();
+  private ArrayList<String> inventory = new ArrayList<String>();
   
   
   public ArrayList<String> getInventory()
@@ -11,6 +13,6 @@ public class BookList
   
   public void addBook(String b) 
   {
-    iventory.add(b);
+    inventory.add(b);
   }
 }
