@@ -62,7 +62,7 @@ public class Store
     Scanner s = new Scanner(System.in);
     String book = s.nextLine();
     s.close();
-    System.out.println("That will cost you " + ((Math.random() * 15) + 15) + " USD.");
+    System.out.println("That will cost you " + (int)(Math.random() * 15 + 15) + " USD.");
   }
   
   
@@ -70,13 +70,3 @@ public class Store
   {
   }
 }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
