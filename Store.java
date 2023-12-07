@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Store
 {
@@ -34,6 +35,25 @@ public class Store
   
   public void buyOrLook()
   {
+    if(BookList.getNotInStock().size() >0)
+    {
+      System.out.println("Hey, we ordered those books you asked for before!");
+      for(int i = 0; i < BookList.getNotInStock().size(); i++)
+      {
+        for(int a = 0; a < 4; a++)
+        {
+          System.out.println("Searching");
+          try {
+            TimeUnit.SECONDS.sleep(1);
+          } catch (InterruptedException e) {
+            System.out.println("Threw InterruptedException");
+          }
+            
+        }
+        System.out.println("Found it!");
+        BookList.addInStock(BookList.getNotInStock().get(i));
+      }
+    }
     System.out.println("Do you know what you'd like to buy, or would you like to see our catalog?\n[1] Buy\n[2] Catalog");
     Scanner s = new Scanner(System.in);
     String input = s.nextLine();
@@ -43,7 +63,7 @@ public class Store
     } 
     else 
     {
-      if(s.nextLine().equals("Catalog") || s.nextInt() == 2)
+      if(input.equals("Catalog") || Integer.parseInt(input) == 2)
       {
         catalog();
       }
@@ -62,7 +82,14 @@ public class Store
     Scanner s = new Scanner(System.in);
     String book = s.nextLine();
     s.close();
-    System.out.println("That will cost you " + (int)(Math.random() * 15 + 15) + " USD.");
+    if(Math.random() > .25)
+    {
+      System.out.println("That will cost you " + (int)(Math.random() * 15 + 15) + " USD.");
+    } else {
+      System.out.println("We don't have that right now. Sorry!");
+      BookList.addNotInStock(book);
+    }
+    buyOrLook();
   }
   
   
